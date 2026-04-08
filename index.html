@@ -42,9 +42,14 @@
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(4px);
         }
-        .feature-card:hover {
+        .card-style {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.01);
+            transition: all 0.3s ease;
+        }
+        .card-style:hover {
             border-color: rgba(59, 142, 208, 0.5);
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             transform: translateY(-4px);
         }
     </style>
@@ -56,12 +61,13 @@
     <nav class="glass-nav fixed top-0 w-full z-50">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 bg-blue-600 rounded-md rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+                <div class="w-8 h-8 bg-blue-600 rounded-md rotate-45 group-hover:rotate-90 transition-transform duration-500 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
                 <span class="text-xl font-extrabold tracking-tighter uppercase">Architect</span>
             </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
                 <a href="#home" class="hover:text-white transition">Home</a>
                 <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#reviews" class="hover:text-white transition">Reviews</a>
                 <a href="#safety" class="hover:text-white transition">Safety</a>
                 <button onclick="toggleModal('key-modal')" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full transition shadow-lg shadow-blue-900/20 font-bold">
                     Professional Key
@@ -114,20 +120,59 @@
     <section id="features" class="max-w-6xl mx-auto px-6 py-32">
         <h2 class="text-4xl font-extrabold mb-16 text-center">Engineered for <span class="text-blue-500">Power Users</span></h2>
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="feature-card border border-white/5 p-10 rounded-3xl transition-all duration-300">
+            <div class="card-style p-10 rounded-3xl">
                 <div class="text-blue-500 text-4xl mb-6">⚡</div>
                 <h3 class="text-xl font-bold mb-4">Extreme Tuning</h3>
                 <p class="text-gray-400 leading-relaxed">Unlock hidden power plans, optimize network priority, and reduce system latency with a single toggle.</p>
             </div>
-            <div class="feature-card border border-white/5 p-10 rounded-3xl transition-all duration-300">
+            <div class="card-style p-10 rounded-3xl">
                 <div class="text-purple-500 text-4xl mb-6">🧹</div>
                 <h3 class="text-xl font-bold mb-4">Deep Purge</h3>
                 <p class="text-gray-400 leading-relaxed">Targets hidden cache directories like Delivery Optimization and Shader Caches to reclaim lost gigabytes.</p>
             </div>
-            <div class="feature-card border border-white/5 p-10 rounded-3xl transition-all duration-300">
+            <div class="card-style p-10 rounded-3xl">
                 <div class="text-red-500 text-4xl mb-6">📦</div>
                 <h3 class="text-xl font-bold mb-4">Safe Debloater</h3>
                 <p class="text-gray-400 leading-relaxed">Remove non-essential Windows bloatware without breaking core system functionality or the Store.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="max-w-6xl mx-auto px-6 py-20">
+        <h2 class="text-4xl font-extrabold mb-16 text-center">User <span class="text-blue-500">Experience</span></h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-style p-8 rounded-2xl">
+                <div class="flex text-yellow-500 mb-4">★★★★★</div>
+                <p class="text-gray-300 italic mb-6">"Finally an optimizer that doesn't feel like malware. Clean, fast, and actually tells me what it's doing before it touches my registry."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-500">JD</div>
+                    <div>
+                        <div class="text-sm font-bold">Jason D.</div>
+                        <div class="text-xs text-gray-500">Systems Administrator</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-style p-8 rounded-2xl">
+                <div class="flex text-yellow-500 mb-4">★★★★★</div>
+                <p class="text-gray-300 italic mb-6">"Reduced my idle RAM usage by 1.5GB instantly. The debloater is a life saver for fresh Windows installs."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-500">MK</div>
+                    <div>
+                        <div class="text-sm font-bold">Marcus K.</div>
+                        <div class="text-xs text-gray-500">Competitive Gamer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-style p-8 rounded-2xl">
+                <div class="flex text-yellow-500 mb-4">★★★★★</div>
+                <p class="text-gray-300 italic mb-6">"The storage cleaner found 12GB of update junk CCleaner missed. The UI is gorgeous and matches my Win11 setup perfectly."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-500">SL</div>
+                    <div>
+                        <div class="text-sm font-bold">Sarah L.</div>
+                        <div class="text-xs text-gray-500">Content Creator</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -136,8 +181,56 @@
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-extrabold mb-6">Safety is <span class="text-blue-500">Non-Negotiable</span></h2>
             <p class="text-gray-400 text-lg mb-12 leading-relaxed">
-                Architect Pro is built on transparency. We utilize integrated Windows Restore Points before every major change, ensuring you can revert to a clean state instantly. No hidden background processes, just pure performance.
+                Architect Pro is built on transparency. We utilize integrated Windows Restore Points before every major change, ensuring you can revert to a clean state instantly.
             </p>
             <div class="inline-flex items-center gap-3 bg-white/5 px-6 py-3 rounded-full border border-white/10">
                 <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-                <span class="text-sm font-bold uppercase tracking-widest text-gray-300">Verified Secure v
+                <span class="text-sm font-bold uppercase tracking-widest text-gray-300">Verified Secure v4.3</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="key-modal" class="hidden fixed inset-0 z-[100] modal-bg flex items-center justify-center p-6">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-white/10 max-w-md w-full text-center shadow-2xl">
+            <h2 class="text-2xl font-bold mb-4">Professional Access</h2>
+            <p class="text-gray-400 mb-8 text-sm">Enter your enterprise license key to unlock advanced automation features.</p>
+            <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" class="w-full bg-black border border-white/10 rounded-xl p-4 mb-6 focus:outline-none focus:border-blue-500 transition text-center font-mono">
+            <button class="w-full bg-blue-600 py-4 rounded-xl font-bold hover:bg-blue-500 transition mb-4">Activate Pro</button>
+            <button onclick="toggleModal('key-modal')" class="text-gray-500 text-sm hover:underline">Return to Dashboard</button>
+        </div>
+    </div>
+
+    <div id="demo-modal" class="hidden fixed inset-0 z-[100] modal-bg flex items-center justify-center p-6">
+        <div class="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <button onclick="toggleModal('demo-modal')" class="absolute top-6 right-6 text-white hover:text-red-500 z-10 p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="w-full h-full flex items-center justify-center text-gray-700 italic bg-[#0a0a0a]">
+                <p>Demo Video Interface</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-20 px-6 text-center border-t border-white/5">
+        <div class="flex justify-center gap-12 mb-12 text-gray-500 font-bold uppercase text-xs tracking-widest">
+            <a href="#" class="hover:text-blue-500 transition">GitHub</a>
+            <a href="#" class="hover:text-blue-500 transition">Docs</a>
+            <a href="#" class="hover:text-blue-500 transition">Contact</a>
+        </div>
+        <p class="text-[10px] text-gray-700 max-w-2xl mx-auto leading-loose uppercase">
+            Architect Pro is an independent utility. Use at your own risk. System modifications can cause instability. 
+            Always ensure a backup exists. Microsoft and Windows are trademarks of the Microsoft group of companies.
+        </p>
+    </footer>
+
+    <script>
+        function toggleModal(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+        function handleDownload() {
+            alert("🚀 Architect Pro v4.3 Download Starting...");
+        }
+    </script>
+
+</body>
+</html>
