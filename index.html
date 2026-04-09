@@ -22,16 +22,13 @@
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
 
-        /* --- Loading Elements --- */
         .loading-track { width: 100%; height: 3px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; position: relative; }
         .loading-fill { width: 45%; height: 100%; background: #3b8ed0; position: absolute; border-radius: 10px; animation: loading-bar 2s infinite ease-in-out; box-shadow: 0 0 15px rgba(59, 142, 208, 0.5); }
 
-        /* --- FAQ Transitions --- */
         .faq-wrapper { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .faq-wrapper.open { grid-template-rows: 1fr; }
         .faq-content { overflow: hidden; }
 
-        /* --- UI Styling --- */
         .hero-aura { position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(59, 142, 208, 0.08) 0%, rgba(13, 17, 23, 0) 70%); z-index: -1; }
         .glass-nav { background: rgba(13, 17, 23, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .app-container { background-color: #0f0f0f; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 50px 100px -20px rgba(0,0,0,0.6); }
@@ -138,8 +135,8 @@
                     </div>
                     <button onclick="fakeLog('Snapshot: System state captured successfully.')" class="w-full bg-[#E67E22] text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95 transition">📸 Create Snapshot</button>
                 </div>
-                <div class="flex-grow flex flex-col p-14 bg-[#0f0f0f] relative overflow-hidden">
-                    <h3 id="app-title" class="text-5xl font-black mb-12 tracking-tighter text-white">Dashboard</h3>
+                <div class="flex-grow flex flex-col p-14 bg-[#0f0f0f] relative overflow-hidden text-white">
+                    <h3 id="app-title" class="text-5xl font-black mb-12 tracking-tighter">Dashboard</h3>
                     
                     <div id="app-overlay" class="absolute inset-0 z-50 flex items-center justify-center p-12">
                         <div class="app-card p-12 rounded-[40px] max-w-lg w-full shadow-2xl scale-95 border-white/5">
@@ -169,29 +166,29 @@
                         </div>
                         <div id="view-optimizations" class="app-view hidden space-y-4">
                             <div class="app-card p-8 rounded-3xl flex justify-between items-center">
-                                <div><div class="text-lg font-bold text-white">Performance Scheduling</div><div class="text-sm text-gray-600">Prioritize hardware for active foreground tasks.</div></div>
+                                <div><div class="text-lg font-bold">Performance Scheduling</div><div class="text-sm text-gray-600">Prioritize hardware for active foreground tasks.</div></div>
                                 <button onclick="requestConfirm('Scheduling Optimization','May cause minor stutter in background apps.', () => fakeLog('Success: Engine Scheduling Active.'))" class="bg-blue-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase">Apply</button>
                             </div>
                             <div class="app-card p-8 rounded-3xl flex justify-between items-center">
-                                <div><div class="text-lg font-bold text-white">Network Buffer Tune</div><div class="text-sm text-gray-600">Adjust TCP stack for lower latency.</div></div>
+                                <div><div class="text-lg font-bold">Network Buffer Tune</div><div class="text-sm text-gray-600">Adjust TCP stack for lower latency.</div></div>
                                 <button onclick="requestConfirm('Network Tune','Incompatible with some VPN configurations.', () => fakeLog('Success: Network Stack Optimized.'))" class="bg-blue-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase">Apply</button>
                             </div>
                             <div class="app-card p-8 rounded-3xl flex justify-between items-center">
-                                <div><div class="text-lg font-bold text-white">Kernel Governor</div><div class="text-sm text-gray-600">Manage low-level thread dispatching.</div></div>
+                                <div><div class="text-lg font-bold">Kernel Governor</div><div class="text-sm text-gray-600">Manage low-level thread dispatching.</div></div>
                                 <button onclick="requestConfirm('Kernel Tune','Requires high-performance cooling.', () => fakeLog('Success: Kernel Governor Locked.'))" class="bg-blue-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase">Apply</button>
                             </div>
                         </div>
                         <div id="view-storage" class="app-view hidden space-y-4">
                             <div class="app-card p-8 rounded-3xl flex justify-between items-center">
-                                <div><div class="text-lg font-bold text-white">DirectX Shader Cache</div><div class="text-sm text-gray-600">Wipe compiled GPU shader history.</div></div>
+                                <div><div class="text-lg font-bold">DirectX Shader Cache</div><div class="text-sm text-gray-600">Wipe compiled GPU shader history.</div></div>
                                 <button onclick="cleanSimulation(450, 'DirectX Shaders Purged')" class="bg-blue-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase">Wipe</button>
                             </div>
                             <div class="app-card p-8 rounded-3xl flex justify-between items-center">
-                                <div><div class="text-lg font-bold text-white">Database Optimization</div><div class="text-sm text-gray-600">Compact and index browser storage.</div></div>
+                                <div><div class="text-lg font-bold">Database Optimization</div><div class="text-sm text-gray-600">Compact and index application storage.</div></div>
                                 <button onclick="cleanSimulation(320, 'Browser DB Optimized')" class="bg-blue-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase">Wipe</button>
                             </div>
                             <div class="app-card p-8 rounded-3xl flex justify-between items-center">
-                                <div><div class="text-lg font-bold text-white">System Log Purge</div><div class="text-sm text-gray-600">Remove accumulated event and error logs.</div></div>
+                                <div><div class="text-lg font-bold">System Log Purge</div><div class="text-sm text-gray-600">Remove accumulated event and error logs.</div></div>
                                 <button onclick="cleanSimulation(180, 'System Logs Cleared')" class="bg-blue-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase">Wipe</button>
                             </div>
                         </div>
@@ -206,7 +203,7 @@
     <section class="max-w-6xl mx-auto px-6 py-24 opacity-0 animate-reveal">
         <div class="text-center mb-16"><h2 class="text-xs font-black uppercase tracking-[0.4em] text-gray-600">Desktop Interface Preview</h2></div>
         <div class="bg-white/5 rounded-[40px] border border-white/5 p-4 flex items-center justify-center overflow-hidden">
-            <img src="98155421-fee1-43eb-8b94-bc0fdcf629dc.png" alt="Architect X Desktop App" class="rounded-[32px] w-full h-auto opacity-80 hover:opacity-100 transition duration-700">
+            <img src="app-preview.png" alt="Architect X Desktop App" class="rounded-[32px] w-full h-auto opacity-80 hover:opacity-100 transition duration-700">
         </div>
     </section>
 
@@ -280,17 +277,18 @@
     <div id="download-toast" class="fixed bottom-12 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-sm shadow-2xl opacity-0 translate-y-20 pointer-events-none z-[200]">🚀 INITIALIZING DOWNLOAD</div>
 
     <script>
-        // Stats
+        // Stats Logic
         let downloads = 4821; let storage = 1420.48; let totalCleaned = 0.0; let pendingAction = null;
         function updateStats() { if (Math.random() > 0.9) downloads += 1; storage += (Math.random() * 0.005); document.getElementById('stat-downloads').innerText = downloads.toLocaleString(); document.getElementById('stat-storage').innerText = Math.floor(storage).toLocaleString(); } setInterval(updateStats, 3000);
 
-        // App Emulator
+        // App Emulator Logic
         function switchView(name) { document.getElementById('app-title').innerText = name.charAt(0).toUpperCase() + name.slice(1); document.querySelectorAll('.app-view').forEach(v => v.classList.add('hidden')); const view = document.getElementById('view-' + name); if (view) view.classList.remove('hidden'); document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('app-btn-active')); document.getElementById('nav-' + name).classList.add('app-btn-active'); fakeLog(`Engine accessing ${name}...`); }
         function fakeLog(msg) { const box = document.getElementById('console'); const div = document.createElement('div'); div.innerText = `> ${msg}`; box.appendChild(div); box.scrollTop = box.scrollHeight; }
         function cleanSimulation(amount, msg) { totalCleaned += amount; document.getElementById("counter").innerText = totalCleaned.toFixed(1); fakeLog(`${msg} (+${amount} MB)`); }
         function requestConfirm(title, downside, action) { document.getElementById('confirm-title').innerText = title; document.getElementById('confirm-downside').innerText = downside; document.getElementById('app-overlay').style.display = 'flex'; pendingAction = action; }
         function closeConfirm(proceed) { document.getElementById('app-overlay').style.display = 'none'; if (proceed && pendingAction) pendingAction(); pendingAction = null; }
 
+        // FAQ State Logic
         function toggleFAQ(id) {
             const wrapper = document.getElementById(`faq-wrapper-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
@@ -300,7 +298,30 @@
             if (!isOpen) { wrapper.classList.add('open'); icon.innerText = '−'; icon.style.transform = 'rotate(135deg)'; }
         }
 
-        function handleDownload() { const toast = document.getElementById('download-toast'); toast.classList.replace('opacity-0', 'opacity-100'); toast.classList.replace('translate-y-20', 'translate-y-0'); setTimeout(() => { toast.classList.replace('opacity-100', 'opacity-0'); toast.classList.replace('translate-y-0', 'translate-y-20'); }, 3500); }
+        // --- UPDATED DOWNLOAD LOGIC FOR GITHUB RELEASES ---
+        function handleDownload() {
+            const toast = document.getElementById('download-toast');
+            
+            // 1. Trigger professional toast animation
+            toast.classList.replace('opacity-0', 'opacity-100');
+            toast.classList.replace('translate-y-20', 'translate-y-0');
+            
+            // 2. Initializing file handshake delay
+            setTimeout(() => {
+                // POINT THIS TO YOUR GITHUB LATEST DOWNLOAD LINK
+                // Replace "YOUR_USERNAME" with your real GitHub handle
+                window.location.href = "https://github.com/YOUR_USERNAME/ArchitectX/releases/latest/download/ArchitectX.exe";
+                fakeLog("System Handshake: Establishing connection to GitHub CDN.");
+            }, 1200);
+
+            // 3. Clear toast state
+            setTimeout(() => {
+                toast.classList.replace('opacity-100', 'opacity-0');
+                toast.classList.replace('translate-y-0', 'translate-y-20');
+            }, 4000);
+        }
+
+        // Intersection Observer
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-reveal'); }); }, { threshold: 0.1 }); document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 </body>
