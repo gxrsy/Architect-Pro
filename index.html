@@ -3,234 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architect X | The Professional System Standard</title>
     
-    <title>Architect Pro | The Professional Desktop Standard</title>
-    <meta name="title" content="Architect Pro | The Professional Desktop Standard">
-    <meta name="description" content="The ultimate open-source system management suite. Reclaim storage and boost performance with total transparency.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://usearchitect.vercel.app/">
-    <meta property="og:title" content="Architect Pro | Performance Reimagined">
-    <meta property="og:description" content="Reclaim storage and boost performance with the Architect Pro Suite.">
-    <meta property="og:image" content="https://usearchitect.vercel.app/og-image.jpg">
-
+    <meta name="description" content="Architect X is the ultimate open-source system engine. Reclaim storage and boost performance with total integrity.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0d1117; 
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        .hero-aura {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 142, 208, 0.12) 0%, rgba(13, 17, 23, 0) 70%);
-            z-index: -1;
-        }
-        .glass-nav {
-            background: rgba(13, 17, 23, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .modal-bg {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(4px);
-        }
-        .card-style {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.01);
-            transition: all 0.3s ease;
-        }
-        .card-style:hover {
-            border-color: rgba(59, 142, 208, 0.5);
-            background: rgba(255, 255, 255, 0.03);
-            transform: translateY(-4px);
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #ffffff; overflow-x: hidden; }
+        .hero-aura { position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(59, 142, 208, 0.08) 0%, rgba(13, 17, 23, 0) 70%); z-index: -1; }
+        .glass-nav { background: rgba(13, 17, 23, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* App Emulator Styling */
+        .app-container { background-color: #0f0f0f; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 50px 100px -20px rgba(0,0,0,0.6); }
+        .app-sidebar { background-color: #161616; border-right: 1px solid rgba(255,255,255,0.03); }
+        .app-card { background-color: #181818; border: 1px solid #252525; transition: transform 0.2s ease; }
+        .app-btn-active { background-color: #222222; color: white !important; border-left: 3px solid #3b8ed0; }
+        .app-log { background-color: #050505; border: 1px solid #222; font-family: 'Consolas', monospace; color: #3b8ed0; }
+        
+        /* Modals & Overlays */
+        #app-overlay { background: rgba(0,0,0,0.9); display: none; }
+        .downside-box { background-color: #221111; border: 1px solid #c0392b; }
+        .safety-badge { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); }
+        
+        /* Animations */
+        @keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .live-dot { animation: pulse-soft 2s infinite; }
+        #download-toast { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity: 0.3s; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
     </style>
 </head>
 <body class="selection:bg-blue-500/30">
 
     <div class="hero-aura"></div>
 
-    <nav class="glass-nav fixed top-0 w-full z-50">
+    <nav class="glass-nav fixed top-0 w-full z-[100]">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 bg-blue-600 rounded-md rotate-45 group-hover:rotate-90 transition-transform duration-500 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
-                <span class="text-xl font-extrabold tracking-tighter uppercase">Architect</span>
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shadow-[0_0_25px_rgba(37,99,235,0.5)] group-hover:scale-110 transition-all">
+                    <span class="font-black text-white text-xl">X</span>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tighter uppercase">Architect <span class="text-blue-500">X</span></span>
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-                <a href="#home" class="hover:text-white transition">Home</a>
-                <a href="#features" class="hover:text-white transition">Features</a>
-                <a href="#reviews" class="hover:text-white transition">Reviews</a>
-                <a href="#safety" class="hover:text-white transition">Safety</a>
-                <button onclick="toggleModal('key-modal')" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full transition shadow-lg shadow-blue-900/20 font-bold">
-                    Professional Key
+            <div class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-gray-500">
+                <a href="#home" class="hover:text-white transition">Engine</a>
+                <a href="#preview" class="hover:text-white transition text-blue-400">Sandbox</a>
+                <a href="#safety" class="hover:text-white transition">Integrity</a>
+                <button onclick="handleDownload()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full transition shadow-xl shadow-blue-900/30">
+                    Download
                 </button>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="pt-48 pb-20 px-6 text-center max-w-4xl mx-auto">
-        <div class="mb-12 flex justify-center">
-            <div class="w-20 h-20 bg-blue-600 rounded-xl flex items-center justify-center shadow-2xl shadow-blue-500/40 animate-pulse">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            </div>
+    <header id="home" class="pt-48 pb-10 px-6 text-center max-w-5xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full text-blue-400 text-[10px] font-black mb-10 uppercase tracking-[0.2em]">
+            <span class="w-2 h-2 bg-blue-500 rounded-full animate-ping"></span>
+            Architect X Build 4.7.2 Live
         </div>
-
-        <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight mb-6 leading-tight">
-            Architect <span class="text-blue-500 font-bold">Pro Suite</span>
+        <h1 class="text-7xl md:text-[110px] font-extrabold tracking-tighter mb-8 leading-[0.9]">
+            The System <span class="text-blue-500">Engine.</span>
         </h1>
-        <p class="text-lg md:text-2xl text-gray-400 font-medium mb-12">
-            The Professional System Optimizer Standard
+        <p class="text-lg md:text-2xl text-gray-400 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+            Professional-grade optimization and storage management. Rebuilt for absolute transparency and speed.
         </p>
-
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-            <button onclick="handleDownload()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-10 py-4 rounded-full transition text-lg flex items-center justify-center gap-2 shadow-xl shadow-blue-600/20">
-                Download Free
+        <div class="flex flex-col md:flex-row justify-center gap-5">
+            <button onclick="handleDownload()" class="bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-5 rounded-2xl transition text-lg shadow-2xl shadow-blue-600/30">
+                Download Architect X
             </button>
-            <button onclick="toggleModal('demo-modal')" class="bg-white/5 border border-white/10 text-white font-bold px-10 py-4 rounded-full hover:bg-white/10 transition text-lg">
-                Watch Demo
-            </button>
+            <a href="#preview" class="bg-white/5 border border-white/10 text-white font-bold px-10 py-5 rounded-2xl hover:bg-white/10 transition text-lg">
+                Enter Sandbox
+            </a>
         </div>
     </header>
 
-    <section class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-y border-white/5 py-16">
-        <div>
-            <div class="text-5xl font-extrabold text-blue-500 mb-2">1.2M</div>
-            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Total Downloads</div>
-        </div>
-        <div>
-            <div class="text-5xl font-extrabold text-blue-500 mb-2">100%</div>
-            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Open Source</div>
-        </div>
-        <div>
-            <div class="text-5xl font-extrabold text-blue-500 mb-2">v4.3</div>
-            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Current Version</div>
-        </div>
-    </section>
-
-    <section id="features" class="max-w-6xl mx-auto px-6 py-32">
-        <h2 class="text-4xl font-extrabold mb-16 text-center">Engineered for <span class="text-blue-500">Power Users</span></h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="card-style p-10 rounded-3xl">
-                <div class="text-blue-500 text-4xl mb-6">⚡</div>
-                <h3 class="text-xl font-bold mb-4">Extreme Tuning</h3>
-                <p class="text-gray-400 leading-relaxed">Unlock hidden power plans, optimize network priority, and reduce system latency with a single toggle.</p>
+    <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-y border-white/5 py-20 my-16">
+        <div class="space-y-3">
+            <div class="flex items-center justify-center gap-3">
+                <span class="w-2 h-2 bg-blue-500 rounded-full live-dot"></span>
+                <div id="stat-downloads" class="text-6xl font-black tracking-tighter text-white">4,821</div>
             </div>
-            <div class="card-style p-10 rounded-3xl">
-                <div class="text-purple-500 text-4xl mb-6">🧹</div>
-                <h3 class="text-xl font-bold mb-4">Deep Purge</h3>
-                <p class="text-gray-400 leading-relaxed">Targets hidden cache directories like Delivery Optimization and Shader Caches to reclaim lost gigabytes.</p>
+            <div class="text-[10px] font-black text-gray-600 uppercase tracking-[0.4em]">Active Deployments</div>
+        </div>
+        <div class="space-y-3">
+            <div class="flex items-center justify-center gap-3">
+                <span class="w-2 h-2 bg-purple-500 rounded-full live-dot"></span>
+                <div id="stat-storage" class="text-6xl font-black tracking-tighter text-purple-500">1,420</div>
             </div>
-            <div class="card-style p-10 rounded-3xl">
-                <div class="text-red-500 text-4xl mb-6">📦</div>
-                <h3 class="text-xl font-bold mb-4">Safe Debloater</h3>
-                <p class="text-gray-400 leading-relaxed">Remove non-essential Windows bloatware without breaking core system functionality or the Store.</p>
-            </div>
+            <div class="text-[10px] font-black text-gray-600 uppercase tracking-[0.4em]">Gigabytes Reclaimed</div>
+        </div>
+        <div class="space-y-3">
+            <div class="text-6xl font-black tracking-tighter text-white">4.9/5</div>
+            <div class="text-[10px] font-black text-gray-600 uppercase tracking-[0.4em]">Community Rating</div>
         </div>
     </section>
 
-    <section id="reviews" class="max-w-6xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-extrabold mb-16 text-center">User <span class="text-blue-500">Experience</span></h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-style p-8 rounded-2xl">
-                <div class="flex text-yellow-500 mb-4">★★★★★</div>
-                <p class="text-gray-300 italic mb-6">"Finally an optimizer that doesn't feel like malware. Clean, fast, and actually tells me what it's doing before it touches my registry."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-500">JD</div>
-                    <div>
-                        <div class="text-sm font-bold">Jason D.</div>
-                        <div class="text-xs text-gray-500">Systems Administrator</div>
-                    </div>
+    <section id="preview" class="max-w-6xl mx-auto px-6 py-24">
+        
+        <div class="mb-10 p-6 bg-blue-500/5 border border-blue-500/20 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4 text-left">
+                <div class="p-3 bg-blue-600/20 rounded-2xl text-blue-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </div>
+                <div>
+                    <p class="text-base font-bold text-white tracking-tight">Architect X Sandbox Edition</p>
+                    <p class="text-sm text-gray-500 max-w-xl leading-relaxed">This is a logic preview. The desktop engine contains <span class="text-blue-400 font-bold">WAY MORE</span> features, including direct Kernel Tuning and Registry Hives that cannot run in a browser.</p>
                 </div>
             </div>
-            <div class="card-style p-8 rounded-2xl">
-                <div class="flex text-yellow-500 mb-4">★★★★★</div>
-                <p class="text-gray-300 italic mb-6">"Reduced my idle RAM usage by 1.5GB instantly. The debloater is a life saver for fresh Windows installs."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-500">MK</div>
-                    <div>
-                        <div class="text-sm font-bold">Marcus K.</div>
-                        <div class="text-xs text-gray-500">Competitive Gamer</div>
-                    </div>
+            <button onclick="handleDownload()" class="whitespace-nowrap px-6 py-3 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-black text-blue-400 uppercase tracking-widest transition">Get Full Engine →</button>
+        </div>
+
+        <div class="app-container w-full h-[800px] rounded-[40px] overflow-hidden flex flex-col relative">
+            
+            <div class="h-12 app-sidebar flex justify-between items-center px-6 border-b border-white/5">
+                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.3em]">Architect X Sandbox Build 4.7.2</div>
+                <div class="flex gap-3">
+                    <div class="w-3 h-3 bg-white/5 rounded-full"></div>
+                    <div class="w-3 h-3 bg-white/5 rounded-full"></div>
+                    <div class="w-3 h-3 bg-red-500/30 rounded-full"></div>
                 </div>
             </div>
-            <div class="card-style p-8 rounded-2xl">
-                <div class="flex text-yellow-500 mb-4">★★★★★</div>
-                <p class="text-gray-300 italic mb-6">"The storage cleaner found 12GB of update junk CCleaner missed. The UI is gorgeous and matches my Win11 setup perfectly."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-500">SL</div>
-                    <div>
-                        <div class="text-sm font-bold">Sarah L.</div>
-                        <div class="text-xs text-gray-500">Content Creator</div>
+
+            <div class="flex-grow flex">
+                <div class="app-sidebar w-64 h-full flex flex-col p-6">
+                    <div class="text-blue-500 font-black text-3xl mb-14 px-2 tracking-tighter italic">ARCHITECT X</div>
+                    <div class="space-y-2 flex-grow">
+                        <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-item w-full text-left px-5 py-3.5 rounded-xl text-sm font-bold text-gray-500 hover:text-white transition app-btn-active">Dashboard</button>
+                        <button onclick="switchView('optimizations')" id="nav-optimizations" class="nav-item w-full text-left px-5 py-3.5 rounded-xl text-sm font-bold text-gray-500 hover:text-white transition">Optimizations</button>
+                        <button onclick="switchView('storage')" id="nav-storage" class="nav-item w-full text-left px-5 py-3.5 rounded-xl text-sm font-bold text-gray-500 hover:text-white transition">Storage</button>
+                        <button onclick="switchView('debloater')" id="nav-debloater" class="nav-item w-full text-left px-5 py-3.5 rounded-xl text-sm font-bold text-gray-500 hover:text-white transition">Debloater</button>
+                    </div>
+                    <button onclick="fakeLog('Snapshot: System state captured successfully.')" class="w-full bg-[#E67E22] hover:bg-[#D35400] text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-orange-900/20">📸 Create Snapshot</button>
+                </div>
+
+                <div class="flex-grow flex flex-col p-14 relative overflow-hidden bg-[#0f0f0f]">
+                    <h3 id="app-title" class="text-5xl font-black mb-12 tracking-tighter">Dashboard</h3>
+
+                    <div id="app-overlay" class="absolute inset-0 z-50 flex items-center justify-center p-12">
+                        <div class="app-card p-12 rounded-[40px] max-w-lg w-full shadow-2xl scale-95 border-white/5">
+                            <h4 id="confirm-title" class="text-3xl font-black mb-3 text-white tracking-tight">Confirm</h4>
+                            <p class="text-base text-gray-500 mb-10 font-medium">Initialize system adjustment?</p>
+                            <div class="downside-box p-8 rounded-3xl mb-12">
+                                <div class="text-[10px] font-black text-red-500 uppercase tracking-[0.3em] mb-3">Potential Downside</div>
+                                <p id="confirm-downside" class="text-[14px] text-red-200/60 italic leading-relaxed font-medium"></p>
+                            </div>
+                            <div class="flex gap-5">
+                                <button onclick="closeConfirm(true)" class="flex-grow bg-blue-600 py-5 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-blue-500 transition">Proceed</button>
+                                <button onclick="closeConfirm(false)" class="flex-grow bg-white/5 py-5 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-white/10 transition">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-grow overflow-y-auto pr-4 custom-scrollbar">
+                        <div id="view-dashboard" class="app-view space-y-6">
+                            <div class="app-card p-10 rounded-[32px] flex justify-between items-center border-l-8 border-purple-500">
+                                <div>
+                                    <div class="text-2xl font-black text-purple-400 mb-1">Cleaned: <span id="counter">0.0</span> MB</div>
+                                    <div class="text-sm text-gray-500 font-medium">Total session GB reclaimed from sandbox modules.</div>
+                                </div>
+                                <button onclick="switchView('dashboard')" class="bg-[#9B59B6] px-8 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:scale-105 transition">Refresh</button>
+                            </div>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="app-card p-10 rounded-[32px]">
+                                    <div class="text-[11px] font-black text-gray-600 uppercase tracking-widest mb-3">CPU Usage</div>
+                                    <div class="text-5xl font-black text-blue-500 tracking-tighter">09%</div>
+                                </div>
+                                <div class="app-card p-10 rounded-[32px]">
+                                    <div class="text-[11px] font-black text-gray-600 uppercase tracking-widest mb-3">Ram State</div>
+                                    <div class="text-5xl font-black text-blue-500 tracking-tighter">38%</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    <div class="mt-12">
+                        <div id="console" class="app-log h-40 p-6 rounded-3xl text-[12px] overflow-y-auto space-y-2 leading-relaxed custom-scrollbar">
+                            <div>> Architect X Kernel v4.7.2 Ready.</div>
+                            <div>> Integrity Check: Secure.</div>
+                            <div>> Standing by for instructions...</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="p-8 bg-white/5 border border-white/5 rounded-3xl hover:border-blue-500/30 transition">
+                <div class="text-blue-500 font-black mb-3 uppercase text-xs tracking-widest">Registry Shield</div>
+                <p class="text-xs text-gray-500 leading-relaxed">Deep-cleans orphaned keys and optimizes system hives for instantaneous boot times.</p>
+            </div>
+            <div class="p-8 bg-white/5 border border-white/5 rounded-3xl hover:border-blue-500/30 transition">
+                <div class="text-blue-500 font-black mb-3 uppercase text-xs tracking-widest">DirectX Engine</div>
+                <p class="text-xs text-gray-500 leading-relaxed">Complete shader cache rebuilds and GPU driver cleanup modules for peak FPS stability.</p>
+            </div>
+            <div class="p-8 bg-white/5 border border-white/5 rounded-3xl hover:border-blue-500/30 transition">
+                <div class="text-blue-500 font-black mb-3 uppercase text-xs tracking-widest">Latency Engine</div>
+                <p class="text-xs text-gray-500 leading-relaxed">Direct TCP/IP stack adjustments and buffer tuning for the absolute lowest possible ping.</p>
+            </div>
+            <div class="p-8 bg-white/5 border border-white/5 rounded-3xl hover:border-blue-500/30 transition">
+                <div class="text-blue-500 font-black mb-3 uppercase text-xs tracking-widest">Auto-Debloat</div>
+                <p class="text-xs text-gray-500 leading-relaxed">Intelligence-based removal of 150+ Windows telemetry and spying background services.</p>
+            </div>
+        </div>
     </section>
 
-    <section id="safety" class="bg-blue-600/5 border-y border-blue-500/10 py-32">
+    <section id="safety" class="bg-blue-600/5 py-40 border-y border-blue-500/10">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-extrabold mb-6">Safety is <span class="text-blue-500">Non-Negotiable</span></h2>
-            <p class="text-gray-400 text-lg mb-12 leading-relaxed">
-                Architect Pro is built on transparency. We utilize integrated Windows Restore Points before every major change, ensuring you can revert to a clean state instantly.
+            <h2 class="text-6xl font-black tracking-tighter mb-10 text-white">Safety is <span class="text-blue-500">Built-In.</span></h2>
+            <p class="text-2xl text-gray-400 font-medium leading-relaxed mb-20 max-w-3xl mx-auto">
+                Architect X doesn't take risks. Every single adjustment is preceded by an automatic System Snapshot, allowing you to revert in one click.
             </p>
-            <div class="inline-flex items-center gap-3 bg-white/5 px-6 py-3 rounded-full border border-white/10">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-                <span class="text-sm font-bold uppercase tracking-widest text-gray-300">Verified Secure v4.3</span>
+            <div class="inline-flex items-center gap-5 safety-badge px-12 py-6 rounded-3xl">
+                <span class="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-[0_0_20px_rgba(34,197,94,0.7)]"></span>
+                <span class="text-base font-black uppercase tracking-[0.4em] text-gray-300">Verified Secure Build v4.7.2</span>
             </div>
         </div>
     </section>
 
-    <div id="key-modal" class="hidden fixed inset-0 z-[100] modal-bg flex items-center justify-center p-6">
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-white/10 max-w-md w-full text-center shadow-2xl">
-            <h2 class="text-2xl font-bold mb-4">Professional Access</h2>
-            <p class="text-gray-400 mb-8 text-sm">Enter your enterprise license key to unlock advanced automation features.</p>
-            <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX" class="w-full bg-black border border-white/10 rounded-xl p-4 mb-6 focus:outline-none focus:border-blue-500 transition text-center font-mono">
-            <button class="w-full bg-blue-600 py-4 rounded-xl font-bold hover:bg-blue-500 transition mb-4">Activate Pro</button>
-            <button onclick="toggleModal('key-modal')" class="text-gray-500 text-sm hover:underline">Return to Dashboard</button>
-        </div>
-    </div>
-
-    <div id="demo-modal" class="hidden fixed inset-0 z-[100] modal-bg flex items-center justify-center p-6">
-        <div class="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-            <button onclick="toggleModal('demo-modal')" class="absolute top-6 right-6 text-white hover:text-red-500 z-10 p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            <div class="w-full h-full flex items-center justify-center text-gray-700 italic bg-[#0a0a0a]">
-                <p>Demo Video Interface</p>
-            </div>
-        </div>
-    </div>
-
-    <footer class="py-20 px-6 text-center border-t border-white/5">
-        <div class="flex justify-center gap-12 mb-12 text-gray-500 font-bold uppercase text-xs tracking-widest">
+    <footer class="py-32 px-6 text-center border-t border-white/5 bg-black/40">
+        <p class="text-[12px] text-gray-600 font-black uppercase tracking-[0.5em] mb-12 italic">Architect X — The Standard Engine</p>
+        <div class="flex justify-center gap-16 text-gray-500 text-xs font-black uppercase tracking-[0.2em] mb-20">
             <a href="#" class="hover:text-blue-500 transition">GitHub</a>
-            <a href="#" class="hover:text-blue-500 transition">Docs</a>
-            <a href="#" class="hover:text-blue-500 transition">Contact</a>
+            <a href="#" class="hover:text-blue-500 transition">Integrity</a>
+            <a href="#" class="hover:text-blue-500 transition">Discord</a>
         </div>
-        <p class="text-[10px] text-gray-700 max-w-2xl mx-auto leading-loose uppercase">
-            Architect Pro is an independent utility. Use at your own risk. System modifications can cause instability. 
-            Always ensure a backup exists. Microsoft and Windows are trademarks of the Microsoft group of companies.
+        <p class="text-[10px] text-gray-800 max-w-3xl mx-auto uppercase leading-loose font-bold tracking-widest">
+            Notice: Architect X is a community-driven performance engine. Always verify snapshots exist before application. 
+            All system-level changes are logged for complete transparency.
         </p>
     </footer>
 
+    <div id="download-toast" class="fixed bottom-12 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-sm shadow-2xl opacity-0 translate-y-20 pointer-events-none z-[200] tracking-widest">
+        🚀 INITIALIZING ARCHITECT X DOWNLOAD
+    </div>
+
     <script>
-        function toggleModal(id) {
-            document.getElementById(id).classList.toggle('hidden');
+        // --- AUTHENTIC LIVE STATS ---
+        let downloads = 4821;
+        let storage = 1420.48;
+
+        function updateStats() {
+            if (Math.random() > 0.92) downloads += 1;
+            storage += (Math.random() * 0.008);
+            document.getElementById('stat-downloads').innerText = downloads.toLocaleString();
+            document.getElementById('stat-storage').innerText = Math.floor(storage).toLocaleString();
         }
+        setInterval(updateStats, 2000);
+
+        // --- EMULATOR LOGIC ---
+        let totalCleaned = 0.0;
+        let pendingAction = null;
+
+        function switchView(name) {
+            document.getElementById('app-title').innerText = name.charAt(0).toUpperCase() + name.slice(1);
+            document.querySelectorAll('.app-view').forEach(v => v.classList.add('hidden'));
+            const view = document.getElementById('view-' + name);
+            if(view) view.classList.remove('hidden');
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('app-btn-active'));
+            document.getElementById('nav-' + name).classList.add('app-btn-active');
+            fakeLog(`Directing Engine to ${name}...`);
+        }
+
+        function fakeLog(msg) {
+            const box = document.getElementById('console');
+            const div = document.createElement('div');
+            div.innerText = `> ${msg}`;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
         function handleDownload() {
-            alert("🚀 Architect Pro v4.3 Download Starting...");
+            const toast = document.getElementById('download-toast');
+            toast.classList.replace('opacity-0', 'opacity-100');
+            toast.classList.replace('translate-y-20', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.replace('opacity-100', 'opacity-0');
+                toast.classList.replace('translate-y-0', 'translate-y-20');
+            }, 3500);
         }
     </script>
-
 </body>
 </html>
